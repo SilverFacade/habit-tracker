@@ -1,0 +1,31 @@
+<!--the base.html file serves as a master template:
+    it will define common structure for all "child" templates in the webapp.
+    other templates must extend the base.html template and only
+    provide unique content for that page.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- COMMON HEADER CONTENT -->
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/app/static/styles.css">
+</head>
+<body>
+    <!-- COMMON NAVIGATION -->
+    <nav>
+        <a href="/app/templates/index.html">Home</a>
+        <a href="/app/templates/about.html">About</a>
+        <a href="/app/templates/dashboard.html">Dashboard</a>
+    </nav>
+    
+    <!-- CONTENT AREA (CHILD TEMPLATES OVERRIDE THIS) -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <!-- COMMON FOOTER -->
+    <footer>
+        &copy; 2025 Habit Tracker
+    </footer>
+</body>
+</html>

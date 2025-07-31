@@ -1,12 +1,17 @@
 from flask import Blueprint
+from flask import render_template
 
 # create a blueprint for a route
-routes = Blueprint('main', __name__)
+main_bp = Blueprint('main', __name__)
 
-@routes.route('/')
+@main_bp.route('/')
 def home():
-    return "Using Blueprints! Habit Tracker 🚀"
+    return render_template('index.html')
 
-@routes.route('/about')
+@main_bp.route('/about')
 def about():
-    return "Details about our Habit Tracker"
+    return render_template('about.html')
+
+@main_bp.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
