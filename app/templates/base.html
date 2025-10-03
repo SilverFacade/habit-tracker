@@ -6,26 +6,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- COMMON HEADER CONTENT -->
+    <!-- title block (child pages override this) -->
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="/app/static/styles.css">
+    <!-- bootstrap css default -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
-<body>
-    <!-- COMMON NAVIGATION -->
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/dashboard">Dashboard</a>
-    </nav>
-    
-    <!-- CONTENT AREA (CHILD TEMPLATES OVERRIDE THIS) -->
-    <div class="content">
-        {% block content %}{% endblock %}
+<body class="d-flex flex-column min-vh-100">
+    <!-- boostrap interactive css -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Habit Tracker</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
     
-    <!-- COMMON FOOTER -->
-    <footer>
-        &copy; 2025 Habit Tracker
+    <!-- content block (child pages override this) -->
+    <main class="container flex-fill">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- common footer -->
+    <footer class="custom-footer">
+        <p>&copy; 2025 Habit Tracker</p>
     </footer>
 </body>
 </html>
